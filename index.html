@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="cep.css">
+    
+    
+    <script>
+
+
+        function consulta() {
+            var cep=document.getElementById('cep').value
+            url='https://viacep.com.br/ws/'+ cep + '/json?callback=callback'
+            var script = document.createElement('script');
+            script.src=url
+            //document.getElementById('labelteste').innerHTML=url
+            document.body.appendChild(script);
+        }
+
+        function callback(conteudo) {
+            document.getElementById('logradouro').value=conteudo.logradouro;
+            document.getElementById('complemento').value=conteudo.complemento;
+            document.getElementById('bairro').value=conteudo.bairro;
+            document.getElementById('localidade').value=conteudo.localidade;
+            document.getElementById('uf').value=conteudo.uf;
+            document.getElementById('unidade').value=conteudo.unidade;
+            document.getElementById('ibge').value=conteudo.ibge;
+            document.getElementById('gia').value=conteudo.gia;
+        }
+
+
+    </script>
+
+
+    <title>Pesquisar Cep</title>
+</head>
+
+
+<body>
+
+   <div class="divmain">      
+        <h3>Digite um Cep no campo CEP :)</h3>
+        <table>
+
+            <tr>
+                <td>
+                    CEP: 
+                </td>
+
+                <td>
+                    <input type="text" id="cep" class="input">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    Logradouro :
+                </td>
+                <td>
+                    <input type="text" id="logradouro" class="input" readonly>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    Complemento:
+                </td>
+                <td>
+                    <input type="text" id="complemento" class="input" readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Bairro:
+                </td>
+                <td>
+                    <input type="text" id="bairro" class="input" readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Localidade:
+                </td>
+                <td>
+                    <input type="text" id="localidade" class="input" readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    UF:
+                </td>
+                <td>
+                    <input type="text" id="uf" class="input" readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Unidade:
+                </td>
+                <td>
+                    <input type="text" id="unidade" class="input" readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    IBGE:
+                </td>
+                <td>
+                    <input type="text" id="ibge" class="input" readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    GIA:
+                </td>
+                <td>
+                    <input type="text" id="gia" class="input" readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="tdbutton">
+                    <button type="button" class="css3button" onclick="consulta()">Buscar</button>
+                </td>
+            </tr>
+
+        </table>
+
+
+
+        
+        
+
+   </div>
+</body>
+</html>
